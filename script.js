@@ -1,4 +1,7 @@
+
+
 let form = document.querySelector('form');
+try{
 form.addEventListener('submit', e => {
   e.preventDefault();
   let output = document.querySelector('output');
@@ -6,7 +9,10 @@ form.addEventListener('submit', e => {
   let secondNum = document.querySelector('#second-num').value;
   let operator = document.querySelector('#operator').value;
   output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
-});
+});}
+catch(err){
+    console.log(err.message);
+}
 
 let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
