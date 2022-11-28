@@ -99,3 +99,37 @@ let tge = document.getElementById('tge');
 tge.addEventListener('click',()=>{
     throw new Error('Global Error Demo');
 })
+
+// Step 3 try-catch-finally
+try{
+    // this id doesn't exist in index.html
+    var fakeId = 'error2'
+    document.getElementById(fakeId);
+}
+catch(err){
+    console.log(`id: ${fakeId} doesn't exist`);
+}
+finally{
+    console.log('entered finally block');
+}
+
+// Step 4  Throw and Custom Errors
+
+class badMoodError extends Error{
+    constructor(message){
+        super(message);
+        this.name='badMoodError';
+    }
+}
+
+function errTest(){
+    throw new badMoodError('system detected that you are having a bad mood, hope this site will make you feel better');
+}
+
+try{
+    errTest();
+}
+catch(err){
+    alert(err.name);
+    alert(err.message);
+}
